@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Nehemie, The one i will always love❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle, #ffe6f0, #ffd1e6);
+  text-align: center;
+  color: #5a1a2f;
+  overflow-x: hidden;
+}
+
+section {
+  padding: 90px 20px;
+}
+
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+}
+
+button {
+  background: #e63973;
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: #c81f5c;
+}
+
+.hidden {
+  display: none;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  max-width: 320px;
+  margin: 20px auto;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+#noBtn {
+  position: absolute;
+}
+
+.heart {
+  position: fixed;
+  color: #ff4d88;
+  font-size: 20px;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+<section id="intro">
+  <h1 id="typing"></h1>
+  <p>This isn’t just a website… it’s a little piece of my heart 💕</p>
+  <button onclick="nextSection('reasons')">Continue 💖</button>
+</section>
+
+<!-- REASONS -->
+<section id="reasons" class="hidden">
+  <h2>Tap a card, Nehemie 💝</h2>
+
+  <div class="card" onclick="reveal(this, 'You are everything to me😊')">💌 Tap me</div>
+  <div class="card" onclick="reveal(this, 'You make me feel so happy and so loved ❤️')">💌 Tap me</div>
+  <div class="card" onclick="reveal(this, ' You are the best thing ever happened to me✨')">💌 Tap me</div>
+
+  <button onclick="nextSection('question')">One last thing… 💘</button>
+</section>
+
+<!-- QUESTION -->
+<section id="question" class="hidden">
+  <h1>Will you be my Valentine? 💖</h1>
+
+  <button onclick="yes()">YES ❤️</button>
+  <button id="noBtn" onmouseover="runAway()">No 😶</button>
+</section>
+
+<!-- FINAL -->
+<section id="final" class="hidden">
+  <h1>You said YES 🥹❤️</h1>
+  <p>
+    I promise to always be by your side, make you smile,
+    and love you till the end of time.<br><br>
+    Happy Valentine’s Day, Mon coeur 🌹
+  </p>
+</section>
+
+<script>
+const text = "Hi Nehemie ❤️";
+let i = 0;
+
+function typeText() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeText, 120);
+  }
+}
+typeText();
+
+function nextSection(id) {
+  document.querySelectorAll("section").forEach(s => s.classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
+}
+
+function reveal(card, message) {
+  card.innerHTML = message;
+  card.style.background = "#ffe6f0";
+}
+
+function runAway() {
+  const btn = document.getElementById("noBtn");
+  btn.style.left = Math.random() * 80 + "vw";
+  btn.style.top = Math.random() * 60 + "vh";
+}
+
+function yes() {
+  nextSection("final");
+  explodeHearts();
+}
+
+function explodeHearts() {
+  for (let i = 0; i < 40; i++) {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.bottom = "-20px";
+    heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+  }
+}
+</script>
+
+</body>
+</html>
